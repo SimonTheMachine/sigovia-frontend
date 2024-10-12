@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "scss/variables";
+
+/* fonts-icon */
+@import "scss/fonts/fontawesome/scss/fontawesome";
+@import "scss/fonts/feather/iconfont";
+
+@import "scss/general";
+@import "scss/generic";
+@import "scss/mixins/function";
+
+/* important element */
+@import "scss/menu/menu-lite";
+
+/* basic elements */
+@import "scss/theme-elements/theme-elements";
+
+/* third party modules style*/
+@import "scss/plugins/plugins";
+
+@import "scss/custom";
+
+@import "scss/missing-from-bootstrap";
+
+// Make the root have no margin or padding
+// html,
+// body {
+//   margin: 0;
+//   padding: 0;
+//   height: 100%;
+//   width: 100%;
+// }
+
+// .navbar-brand {
+//   padding-top: var(--bs-navbar-brand-padding-y);
+//   padding-bottom: var(--bs-navbar-brand-padding-y);
+//   margin-right: var(--bs-navbar-brand-margin-end);
+//   font-size: var(--bs-navbar-brand-font-size);
+//   color: var(--bs-navbar-brand-color);
+//   text-decoration: none;
+//   white-space: nowrap;
+// }
+
+// .w100 {
+//   width: 100%;
+// }
+
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }

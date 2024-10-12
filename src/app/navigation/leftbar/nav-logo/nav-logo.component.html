@@ -1,0 +1,17 @@
+<div>
+  <a [routerLink]="['/bookings']" class="b-brand">
+    <div class="b-bg">
+      <img class="logo" src="assets/logo-small.png" alt="" />
+      <!-- <i class="feather icon-trending-up"></i> -->
+    </div>
+    <span class="b-title">Sigovia</span>
+  </a>
+  <a
+    href="javascript:"
+    class="mobile-menu"
+    [ngClass]="{ on: navCollapsed }"
+    id="mobile-collapse"
+    (click)="navCollapse()"
+    ><span></span
+  ></a>
+</div>
