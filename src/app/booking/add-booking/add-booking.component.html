@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Add Booking" [options]="false">
+      <div class="row">
+        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="bookingDescription">Booking Description</label>
+            <input
+              class="form-control"
+              id="bookingDescription"
+              formControlName="bookingDescription"
+              aria-describedby="descriptionHelp"
+              placeholder="E.g., booking of a bike, room reservation, etc."
+            />
+            <div
+              *ngIf="
+                bookingForm.get('bookingDescription')?.invalid &&
+                bookingForm.get('bookingDescription')?.touched
+              "
+              class="text-danger"
+            >
+              Booking description is required.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="fromDate">From</label>
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="fromDate"
+                  ngbDatepicker
+                  #fromDate="ngbDatepicker"
+                  formControlName="fromDate"
+                />
+                <input
+                  type="time"
+                  class="form-control"
+                  name="fromTime"
+                  placeholder="HH:mm"
+                  formControlName="fromTime"
+                />
+              </div>
+              <div
+                *ngIf="
+                  bookingForm.get('fromDate')?.invalid &&
+                  bookingForm.get('fromDate')?.touched
+                "
+                class="text-danger"
+              >
+                From date is required and must be in the format yyyy-mm-dd.
+              </div>
+              <div
+                *ngIf="
+                  bookingForm.get('fromTime')?.invalid &&
+                  bookingForm.get('fromTime')?.touched
+                "
+                class="text-danger"
+              >
+                From time is required and must be in the format HH:mm.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="toDate">To</label>
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="toDate"
+                  ngbDatepicker
+                  #toDate="ngbDatepicker"
+                  formControlName="toDate"
+                />
+                <input
+                  type="time"
+                  class="form-control"
+                  name="toTime"
+                  placeholder="HH:mm"
+                  formControlName="toTime"
+                />
+              </div>
+              <div
+                *ngIf="
+                  bookingForm.get('toDate')?.invalid &&
+                  bookingForm.get('toDate')?.touched
+                "
+                class="text-danger"
+              >
+                To date is required and must be in the format yyyy-mm-dd.
+              </div>
+              <div
+                *ngIf="
+                  bookingForm.get('toTime')?.invalid &&
+                  bookingForm.get('toTime')?.touched
+                "
+                class="text-danger"
+              >
+                To time is required and must be in the format HH:mm.
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="bookingForm.errors?.['dateTimeRangeInvalid']"
+            class="text-danger"
+          >
+            From date and time must be before to date and time.
+          </div>
+          <div class="mb-4"></div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="bookingForm.invalid"
+          >
+            Add Booking
+          </button>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

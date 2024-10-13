@@ -30,7 +30,7 @@ const NavigationItems = [
     children: [
       {
         id: 'booking-page',
-        title: 'My Bookings',
+        title: 'Bookings',
         type: 'item',
         url: '/booking',
         icon: 'feather icon-home',
