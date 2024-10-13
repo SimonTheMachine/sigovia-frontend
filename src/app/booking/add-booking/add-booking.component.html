@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col-sm-12">
-    <app-card cardTitle="Add Booking" [options]="false">
+    <app-card cardTitle="Add New Booking" [options]="false">
       <div class="row">
         <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="bookingDescription">Booking Description</label>
+            <label for="name">Booking Name</label>
             <input
               class="form-control"
-              id="bookingDescription"
-              formControlName="bookingDescription"
-              aria-describedby="descriptionHelp"
+              id="name"
+              formControlName="name"
+              aria-describedby="nameHelp"
               placeholder="E.g., booking of a bike, room reservation, etc."
             />
             <div
               *ngIf="
-                bookingForm.get('bookingDescription')?.invalid &&
-                bookingForm.get('bookingDescription')?.touched
+                bookingForm.get('name')?.invalid &&
+                bookingForm.get('name')?.touched
               "
               class="text-danger"
             >
-              Booking description is required.
+              Booking name is required.
             </div>
           </div>
           <div class="row">

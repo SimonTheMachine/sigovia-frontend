@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CardComponent } from '../../shared/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -10,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Booking } from '../../models/booking.model';
 
 @Component({
   selector: 'app-add-booking',
@@ -19,6 +20,8 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './add-booking.component.scss',
 })
 export class AddBookingComponent {
+  @Output() bookingAdded = new EventEmitter<Booking>();
+
   bookingForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -27,7 +30,7 @@ export class AddBookingComponent {
   ngOnInit(): void {
     this.bookingForm = this.fb.group(
       {
-        bookingDescription: ['', Validators.required],
+        name: ['', Validators.required],
         fromDate: ['', [Validators.required, dateValidator]],
         fromTime: ['', [Validators.required, this.timeValidator]],
         toDate: ['', [Validators.required, dateValidator]],
@@ -39,10 +42,30 @@ export class AddBookingComponent {
 
   onSubmit() {
     if (this.bookingForm.valid) {
-      console.log('Form Submitted', this.bookingForm.value);
+      const booking: Booking = {
+        name: this.bookingForm.value.name,
+        fromDateTime: this.combineDateAndTime(
+          this.bookingForm.value.fromDate,
+          this.bookingForm.value.fromTime
+        ),
+        toDateTime: this.combineDateAndTime(
+          this.bookingForm.value.toDate,
+          this.bookingForm.value.toTime
+        ),
+      };
+      this.bookingAdded.emit(booking);
+      console.log('Form Submitted', booking);
+
+      // Reset form
+      this.bookingForm.reset();
     } else {
       console.log('Form is invalid');
     }
+  }
+
+  private combineDateAndTime(date: NgbDateStruct, time: string): Date {
+    const [hours, minutes] = time.split(':').map(Number);
+    return new Date(date.year, date.month - 1, date.day, hours, minutes);
   }
 }
 

@@ -1,6 +1,2 @@
-<app-add-booking></app-add-booking>
-<div class="row">
-  <div class="col-sm-12">
-    <app-card cardTitle="My Bookings" [options]="false"> </app-card>
-  </div>
-</div>
+<app-add-booking (bookingAdded)="onBookingAdded($event)"></app-add-booking>
+<app-my-bookings [bookings]="bookings"></app-my-bookings>
