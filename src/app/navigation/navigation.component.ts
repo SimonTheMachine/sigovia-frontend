@@ -31,7 +31,7 @@ export class NavigationComponent {
     if (
       this.navCollapsedMob &&
       !document
-        ?.querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.contains('mob-open')
     ) {
       this.navCollapsedMob = !this.navCollapsedMob;
@@ -52,11 +52,11 @@ export class NavigationComponent {
   closeMenu() {
     if (
       document
-        ?.querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.contains('mob-open')
     ) {
       document
-        .querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.remove('mob-open');
     }
   }

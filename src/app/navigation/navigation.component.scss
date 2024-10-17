@@ -1,0 +1,7 @@
+.nav-bar-container {
+  display: block;
+
+  @media (min-width: 993px) {
+    display: none;
+  }
+}

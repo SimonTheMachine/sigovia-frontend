@@ -12,6 +12,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { NavigationItem } from './leftbar/leftbar-routes';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     RouterModule,
     NgScrollbarModule,
     BreadcrumbsComponent,
+    NavBarComponent,
 
     // BrowserAnimationsModule,
   ],

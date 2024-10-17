@@ -29,7 +29,7 @@ export class NavContentComponent {
     if (
       this.windowWidth < 992 &&
       document
-        ?.querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.contains('mob-open')
     ) {
       this.onNavCollapsedMob.emit();

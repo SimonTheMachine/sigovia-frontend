@@ -5,11 +5,12 @@ import { Booking } from '../models/booking.model';
 import { CommonModule, DatePipe } from '@angular/common';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { BookingService } from '../services/booking.service';
+import { BreadcrumbsComponent } from '../navigation/breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [AddBookingComponent, MyBookingsComponent],
+  imports: [AddBookingComponent, MyBookingsComponent, BreadcrumbsComponent],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.scss',
 })

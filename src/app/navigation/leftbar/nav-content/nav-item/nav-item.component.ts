@@ -37,11 +37,11 @@ export class NavItemComponent {
     }
     if (
       document
-        ?.querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.contains('mob-open')
     ) {
       document
-        ?.querySelector('app-navigation.pcoded-navbar')
+        .querySelector('app-leftbar.pcoded-navbar')
         ?.classList.remove('mob-open');
     }
   }
