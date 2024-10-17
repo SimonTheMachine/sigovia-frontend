@@ -44,11 +44,11 @@ export class AddBookingComponent {
     if (this.bookingForm.valid) {
       const booking: Booking = {
         name: this.bookingForm.value.name,
-        fromDateTime: this.combineDateAndTime(
+        startDate: this.combineDateAndTime(
           this.bookingForm.value.fromDate,
           this.bookingForm.value.fromTime
         ),
-        toDateTime: this.combineDateAndTime(
+        endDate: this.combineDateAndTime(
           this.bookingForm.value.toDate,
           this.bookingForm.value.toTime
         ),

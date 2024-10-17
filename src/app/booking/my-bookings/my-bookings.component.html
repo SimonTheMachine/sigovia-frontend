@@ -22,8 +22,8 @@
             <tr *ngFor="let booking of bookings; let i = index">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ booking.name }}</td>
-              <td>{{ booking.fromDateTime | date : "short" }}</td>
-              <td>{{ booking.toDateTime | date : "short" }}</td>
+              <td>{{ booking.startDate | date : "short" }}</td>
+              <td>{{ booking.endDate | date : "short" }}</td>
             </tr>
           </tbody>
         </table>
